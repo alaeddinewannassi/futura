@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New InsuranceCategory{% endblock %}
+
+{% block body %}
+    <h1>Create new InsuranceCategory</h1>
+
+    {{ include('insurance_category/_form.html.twig') }}
+
+    <a href="{{ path('app_insurance_category_index') }}">back to list</a>
+{% endblock %}

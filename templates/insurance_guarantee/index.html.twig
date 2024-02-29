@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}InsuranceGuarantee index{% endblock %}
+
+{% block body %}
+    <h1>InsuranceGuarantee index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Coverage</th>
+                <th>MonthlyPrice</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for insurance_guarantee in insurance_guarantees %}
+            <tr>
+                <td>{{ insurance_guarantee.id }}</td>
+                <td>{{ insurance_guarantee.name }}</td>
+                <td>{{ insurance_guarantee.description }}</td>
+                <td>{{ insurance_guarantee.coverage }}</td>
+                <td>{{ insurance_guarantee.monthlyPrice }}</td>
+                <td>
+                    <a href="{{ path('app_insurance_guarantee_show', {'id': insurance_guarantee.id}) }}">show</a>
+                    <a href="{{ path('app_insurance_guarantee_edit', {'id': insurance_guarantee.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_insurance_guarantee_new') }}">Create new</a>
+{% endblock %}
